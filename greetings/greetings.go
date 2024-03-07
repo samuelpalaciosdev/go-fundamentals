@@ -1,9 +1,11 @@
 package greetings
 
-import "fmt"
+import "strings"
 
-func Hello(name string) string {
-	// Return a greeting that embeds the name in a message.
-	message := fmt.Sprintf("Hi, %s. Welcome!", name)
+func Hello(names []string) string {
+	if len(names) == 0 {
+		names = []string{"world"}
+	}
+	message := "Hi, " + strings.Join(names, ", ") + ". Welcome!"
 	return message
 }
